@@ -39,6 +39,7 @@ import trobbit from '../assets/projects/trobbit.gif'
 import comali from '../assets/projects/comali.gif'
 
 import vampy from '../assets/projects/vampy.gif'
+import { LazyLoadComponent, LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Projects() {
   const projects = [
@@ -218,7 +219,8 @@ export default function Projects() {
             onClick={() => setSelectedProject(project)}
           >
             <div className="project-image">
-              <img src={project.image} alt={project.title} />
+              {/* <img src={project.image} alt={project.title} loading="lazy" /> */}
+              <ImageWithLoader src={project.image} alt={project.title} />
             </div>
             <h4>{project.title}</h4>
             <p>{project.description}</p>
@@ -284,5 +286,32 @@ export default function Projects() {
 )}
 
     </section>
+  );
+}
+
+function ImageWithLoader({ src, alt }) {
+  const [loaded, setLoaded] = React.useState(false);
+
+  return (
+    <div className="image-wrapper" style={{ position: "relative" }}>
+      {!loaded && (
+        <div className="spinner">
+          <div className="loader" /> {/* custom CSS loader */}
+        </div>
+      )}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        style={{
+          opacity: loaded ? 1 : 0,
+          transition: "opacity 0.3s ease-in-out",
+          width: "100%",
+          height: "auto",
+          display: "block"
+        }}
+      />
+    </div>
   );
 }
