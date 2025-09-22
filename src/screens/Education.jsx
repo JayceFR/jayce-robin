@@ -6,7 +6,7 @@ export default function Education() {
         <ul className="timeline">
           <li>
             <h4>Imperial College London</h4>
-            <p><em>September 2023 – June 2026 . BSc Computing </em></p>
+            <p><em>September 2023 – June 2027 . BEng Computing </em></p>
             <ul>
               <li>Relevant Computer Science modules: Databases, Graphs and Algorithms, Calculus, Computer Systems, Linear Algebra, Discrete Mathematics</li>
               <li>Relevant Programming modules: C, Java, Kotlin, Haskell</li>

@@ -61,7 +61,6 @@ export default function Projects() {
         description: "Android security application that automatically detects and captures images of potential intruders, securely sending alerts and photos directly to your email.",
         techstack: "Tech Stack: Kotlin, Jetpack Compose, Flow, Google Sign-In, On-Device ML",
         image: eyespyGif,
-        repo: "https://github.com/JayceFR/StepShadower",
         store: "https://play.google.com/store/apps/details?id=eye.spy",
         dataImages: [eyespy2, eyespy3],
         dataText: [
@@ -71,7 +70,7 @@ export default function Projects() {
 
     },
     {
-      title: "Popnik - Mobile game",
+      title: "Podnik - Mobile game",
       description: "A mobile game that challenges players to navigate a series of procedurally generated levels defeating enemies and hacking computers!",
       techstack: "Tech Stack: C, Raylib, GLSL",
       image: popnik,
