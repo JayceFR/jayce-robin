@@ -220,7 +220,7 @@ export default function Projects() {
           >
             <div className="project-image">
               {/* <img src={project.image} alt={project.title} loading="lazy" /> */}
-              <ImageWithLoader src={project.image} alt={project.title} />
+              <ImageWithLoader src={project.image} alt={project.title} className="grid" />
             </div>
             <h4>{project.title}</h4>
             <p>{project.description}</p>
@@ -269,10 +269,15 @@ export default function Projects() {
           <div className="popup-box" key={idx}>
             {selectedProject.dataImages[idx] && (
               <div className="popup-image">
-                <img
+                <ImageWithLoader
                   src={selectedProject.dataImages[idx]}
                   alt={`${selectedProject.title} screenshot ${idx + 1}`}
+                  className={"popup"}
                 />
+                {/* <img
+                  src={selectedProject.dataImages[idx]}
+                  alt={`${selectedProject.title} screenshot ${idx + 1}`}
+                /> */}
               </div>
             )}
             {selectedProject.dataText[idx] && (
@@ -289,15 +294,24 @@ export default function Projects() {
   );
 }
 
-function ImageWithLoader({ src, alt }) {
+function ImageWithLoader({ src, alt, className }) {
   const [loaded, setLoaded] = React.useState(false);
 
+  // derive placeholder: replace `.gif` with `.png` if possible
+  const placeholder = src.endsWith(".gif")
+    ? src.replace(".gif", "2.png") // e.g. eyespy.gif → eyespy2.png
+    : null;
+
   return (
-    <div className="image-wrapper" style={{ position: "relative" }}>
+    <div className={`image-wrapper ${className || ""}`}>
       {!loaded && (
-        <div className="spinner">
-          <div className="loader" /> {/* custom CSS loader */}
-        </div>
+        placeholder ? (
+          <img src={placeholder} alt={`${alt} cover`} className="placeholder" />
+        ) : (
+          <div className="spinner">
+            <div className="loader" />
+          </div>
+        )
       )}
       <img
         src={src}
@@ -306,12 +320,11 @@ function ImageWithLoader({ src, alt }) {
         onLoad={() => setLoaded(true)}
         style={{
           opacity: loaded ? 1 : 0,
-          transition: "opacity 0.3s ease-in-out",
-          width: "100%",
-          height: "auto",
-          display: "block"
+          transition: "opacity 0.3s ease-in-out"
         }}
       />
     </div>
   );
 }
+
+
