@@ -12,6 +12,7 @@ import terrain4Png from '../assets/projects/terrain4.png'
 import eyespyGif from '../assets/projects/eyespy.gif'
 import eyespy2 from '../assets/projects/eyespy2.png'
 import eyespy3 from '../assets/projects/eyespy3.gif'
+import eyespy3Png from '../assets/projects/eyespy3.png'
 
 import eyespyPng from '../assets/projects/eyespy.png'
 
@@ -19,23 +20,29 @@ import popnik from '../assets/projects/popnik.gif'
 import popnik2 from '../assets/projects/popnik2.gif'
 
 import popnikPng from '../assets/projects/popnik.png'
+import popnik2Png from '../assets/projects/popnik2.png'
 
 import pawnrace from '../assets/projects/pawnrace.gif'
 import pawnrace2 from '../assets/projects/pawnrace2.gif'
 import pawnrace3 from '../assets/projects/pawnrace3.gif'
 
 import pawnracePng from '../assets/projects/pawnrace.png'
+import pawnrace2Png from '../assets/projects/pawnrace2.png'
+import pawnrace3Png from '../assets/projects/pawnrace3.png'
 
 import musicify from '../assets/projects/musicify.gif'
 import musicify2 from '../assets/projects/musicify2.gif'
 
 import musicifyPng from '../assets/projects/musicify.png'
+import musicify2Png from '../assets/projects/musicify2.png'
 
 import projectile from '../assets/projects/projectile.gif'
 import projectile2 from '../assets/projects/projectile2.gif'
 import projectile3 from '../assets/projects/projectile3.gif'
 
 import projectilePng from '../assets/projects/projectile.png'
+import projectile2Png from '../assets/projects/projectile2.png'
+import projectile3Png from '../assets/projects/projectile3.png'
 
 import darklight from '../assets/projects/darklight.gif'
 
@@ -95,6 +102,7 @@ export default function Projects() {
         placeholder : eyespyPng,
         store: "https://play.google.com/store/apps/details?id=eye.spy",
         dataImages: [eyespy2, eyespy3],
+        dataPlaceHolders: [eyespy2, eyespy3Png],
         dataText: [
         "Features a built-in personal assistant powered by on-device machine learning, allowing users to easily configure capture settings and security preferences.",
         "Seamlessly integrated with Google Account sign-in for secure authentication and user management. Intruder alerts and captured images are sent directly from the user’s authenticated Google account."
@@ -109,6 +117,7 @@ export default function Projects() {
       placeholder : popnikPng,
       repo: "https://github.com/JayceFR/VampyReloaded",
       dataImages: [popnik2],
+      dataPlaceHolders: [popnik2Png],
       dataText: ["Enemy use A* pathfinding to chase the player around the level, while the player can shoot projectiles to defeat them. Levels are procedurally generated using a cellular automata algorithm to create maze-like structures that are different each time."]
     },
 
@@ -120,6 +129,7 @@ export default function Projects() {
       placeholder : pawnracePng,
       repo: "https://github.com/JayceFR/PawnRace",
       dataImages: [pawnrace2, pawnrace3],
+      dataPlaceHolders: [pawnrace2Png, pawnrace3Png],
       dataText: [
         "Features a two player local multiplayer mode, allowing two players to compete on the same device by taking turns.",
         "Includes a custom built AI opponent built using Minimax algorithm and alpha-beta pruning, providing a challenging experience for solo players."
@@ -133,6 +143,7 @@ export default function Projects() {
       placeholder : musicifyPng,
       repo: "https://github.com/JayceFR/Musicify",
       dataImages: [musicify2],
+      dataPlaceHolders: [musicify2Png],
       dataText: [
         "Supports playlists, shuffle, repeat, and background playback."
       ]
@@ -146,6 +157,7 @@ export default function Projects() {
       repo: "https://github.com/JayceFR/Projectile",
       demo: "https://jaycefr.github.io/Projectile/",
       dataImages: [projectile2, projectile3],
+      dataPlaceHolders: [projectile2Png, projectile3Png],
       dataText: [
         "Supports real time rendering of projectiles in graphs based on user-defined parameters. Immediate visual feedback allows users to understand the effects of different parameters on projectile motion.",
         "Features 3 different celestial bodies (Earth, Moon, Mars) with accurate gravitational forces, allowing users to simulate projectile motion in different environments."
@@ -159,6 +171,7 @@ export default function Projects() {
       placeholder : libraryPng,
       repo: "https://github.com/JayceFR/Library_FrontEnd",
       dataImages: [library2, library3],
+      dataPlaceHolders: [library2, library3],
       dataText: [
         "Uses a custom GoLang backend with a MySQL database to manage user data and book information.",
         "Features real time messaging using WebSockets to allow users to communicate to each other in real time."
@@ -313,6 +326,7 @@ export default function Projects() {
               <div className="popup-image">
                 <ImageWithLoader
                   src={selectedProject.dataImages[idx]}
+                  placeholder={selectedProject.dataPlaceHolders ? selectedProject.dataPlaceHolders[idx] : null}
                   alt={`${selectedProject.title} screenshot ${idx + 1}`}
                   className={"popup"}
                 />
