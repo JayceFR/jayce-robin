@@ -6,7 +6,7 @@ export default function Education() {
         <ul className="timeline">
           <li>
             <h4>Imperial College London</h4>
-            <p><em>September 2023 – June 2027 . BEng Computing </em></p>
+            <p><em>September 2023 – June 2027 . B.Eng. Computing </em></p>
             <ul>
               <li>Relevant Computer Science modules: Databases, Graphs and Algorithms, Calculus, Computer Systems, Linear Algebra, Discrete Mathematics</li>
               <li>Relevant Programming modules: C, Java, Kotlin, Haskell</li>
@@ -29,7 +29,7 @@ export default function Education() {
         <ul className="timeline">
           <li>
             <h4>Software Engineering Intern – Ayacare</h4>
-            <p><em>July 2023 – Aug 2023 · Canada</em></p>
+            <p><em>July 2023 – Aug 2023 | Canada (Remote)</em></p>
             <ul>
               <li>Enhanced API performance by 60% by rewriting high latency Postgres queries directly in Go with SQL, eliminating a persistent 30 second timeout. Added server-side pagination and dynamic filtering, reducing response time even under peak load.</li>
               <li>Devised and established an end-to-end testing framework in TypeScript with Playwright which improved test coverage and automation, reducing overall regression time by 40%.</li>
@@ -40,7 +40,7 @@ export default function Education() {
 
           <li>
             <h4>Tutor and Website Developer – Triangular Learning Centre</h4>
-            <p><em>Aug 2023 – Present · London, UK</em></p>
+            <p><em>Aug 2023 – Present | London, UK</em></p>
             <ul>
               <li>Effectively communicated complex Math and Computer Science concepts to GCSE students, improving their fundamental skills through tailored guidance.</li>
               <li>Designed and built a modern WordPress site to improve the centre’s online presence. Integrated a mail-enabled contact form to streamline client engagement.</li>

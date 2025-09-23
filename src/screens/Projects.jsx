@@ -108,7 +108,6 @@ export default function Projects() {
       image: popnik,
       placeholder : popnikPng,
       repo: "https://github.com/JayceFR/VampyReloaded",
-      store: "https://itch.io/game/pawn-race",
       dataImages: [popnik2],
       dataText: ["Enemy use A* pathfinding to chase the player around the level, while the player can shoot projectiles to defeat them. Levels are procedurally generated using a cellular automata algorithm to create maze-like structures that are different each time."]
     },
@@ -153,18 +152,6 @@ export default function Projects() {
       ]
     },
     {
-      title: "DarkLight",
-      description: "Game submitted to the PolyMars X ScoreSpace game jam. Travel as a descendant of the lord of the shadows looking for his lost brother captured by the Red Hoodies.",
-      techstack: "Tech Stack: Python, Pygame",
-      image: darklight,
-      placeholder : darklightPng,
-      repo: "https://github.com/JayceFR/DarkLight",
-      demo: "https://www.youtube.com/watch?v=8KmwRP9enY4",
-      store : "https://vicious-jayjan.itch.io/darklight",
-      dataImages: [],
-      dataText: []
-    },
-    {
       title: "Community Library",
       description: "A project aimed at creating a community-driven library platform where users can contribute, share, and discover books.",
       techstack: "Tech Stack: React, GoLang, MySQL",
@@ -176,6 +163,18 @@ export default function Projects() {
         "Uses a custom GoLang backend with a MySQL database to manage user data and book information.",
         "Features real time messaging using WebSockets to allow users to communicate to each other in real time."
       ]
+    },
+    {
+      title: "DarkLight",
+      description: "Game submitted to the PolyMars X ScoreSpace game jam. Travel as a descendant of the lord of the shadows looking for his lost brother captured by the Red Hoodies.",
+      techstack: "Tech Stack: Python, Pygame",
+      image: darklight,
+      placeholder : darklightPng,
+      repo: "https://github.com/JayceFR/DarkLight",
+      demo: "https://www.youtube.com/watch?v=8KmwRP9enY4",
+      store : "https://vicious-jayjan.itch.io/darklight",
+      dataImages: [],
+      dataText: []
     },
     {
       title: "Mephious",

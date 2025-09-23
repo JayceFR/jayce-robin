@@ -11,7 +11,7 @@ export default function Home() {
       <div className="home-text">
         <h2>Hi, I’m Jayce 👋</h2>
         <p className="intro">
-          Penultimate year Computing student at Imperial College London, seeking a <strong>Software Engineering Internship</strong>.
+          Penultimate-year Computer Science student passionate about software engineering. I’ve worked on projects spanning mobile, web, and systems programming, and I’m always exploring new ways to turn ideas into impactful software.
         </p>
         <p>
           Experienced in <strong>full-stack development</strong>, <strong>mobile development</strong>, and <strong>game development</strong>.
