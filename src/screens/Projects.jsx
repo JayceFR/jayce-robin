@@ -77,6 +77,12 @@ import vampyPng from '../assets/projects/vampy.png'
 import { LazyLoadComponent, LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Projects() {
+
+  // scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
   const projects = [
     {
       title: "3D World Generator",

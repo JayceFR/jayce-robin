@@ -1,4 +1,11 @@
+import { useEffect } from "react";
+
 export default function Education() {
+
+  useEffect(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }, []);
+
   return (
     <section className="timeline-section">
       <div className="timeline-box">
@@ -6,7 +13,7 @@ export default function Education() {
         <ul className="timeline">
           <li>
             <h4>Imperial College London</h4>
-            <p><em>September 2023 – June 2027 . B.Eng. Computing </em></p>
+            <p><em>September 2023 – June 2027 . B.Eng., Computing </em></p>
             <ul>
               <li>Relevant Computer Science modules: Databases, Graphs and Algorithms, Calculus, Computer Systems, Linear Algebra, Discrete Mathematics</li>
               <li>Relevant Programming modules: C, Java, Kotlin, Haskell</li>

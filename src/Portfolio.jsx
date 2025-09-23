@@ -78,7 +78,7 @@ function Layout() {
         </Routes>
 
         <div className="contact-bar">
-          <a href="https://vicious-jayjan.itch.io/">🎮 Itch</a>
+          <a href="https://vicious-jayjan.itch.io/" target="_blank" rel="noreferrer">🎮 Itch</a>
           <a href="https://github.com/JayceFR/" target="_blank" rel="noreferrer">💻 GitHub</a>
           <a href="https://www.linkedin.com/in/jayce-jefferson/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
         </div>
