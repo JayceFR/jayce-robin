@@ -1,64 +1,64 @@
 import React, { useState, useEffect, useRef } from "react";
-import terrainGif from '../assets/projects/terrain.gif'
-import terrain2Gif from '../assets/projects/terrain2.gif'
-import terrain3Gif from '../assets/projects/terrain3.gif'
-import terrain4Gif from '../assets/projects/terrain4.gif'
+import terrainGif from '../assets/projects/terrain.mp4'
+import terrain2Gif from '../assets/projects/terrain2.mp4'
+import terrain3Gif from '../assets/projects/terrain3.mp4'
+import terrain4Gif from '../assets/projects/terrain4.mp4'
 
 import terrainPng from '../assets/projects/terrain.png'
 import terrain2Png from '../assets/projects/terrain2.png'
 import terrain3Png from '../assets/projects/terrain3.png'
 import terrain4Png from '../assets/projects/terrain4.png'
 
-import eyespyGif from '../assets/projects/eyespy.gif'
+import eyespyGif from '../assets/projects/eyespy.mp4'
 import eyespy2 from '../assets/projects/eyespy2.png'
-import eyespy3 from '../assets/projects/eyespy3.gif'
+import eyespy3 from '../assets/projects/eyespy3.mp4'
 import eyespy3Png from '../assets/projects/eyespy3.png'
 
 import eyespyPng from '../assets/projects/eyespy.png'
 
-import popnik from '../assets/projects/popnik.gif'
-import popnik2 from '../assets/projects/popnik2.gif'
+import popnik from '../assets/projects/popnik.mp4'
+import popnik2 from '../assets/projects/popnik2.mp4'
 
 import popnikPng from '../assets/projects/popnik.png'
 import popnik2Png from '../assets/projects/popnik2.png'
 
-import pawnrace from '../assets/projects/pawnrace.gif'
-import pawnrace2 from '../assets/projects/pawnrace2.gif'
-import pawnrace3 from '../assets/projects/pawnrace3.gif'
+import pawnrace from '../assets/projects/pawnrace.mp4'
+import pawnrace2 from '../assets/projects/pawnrace2.mp4'
+import pawnrace3 from '../assets/projects/pawnrace3.mp4'
 
 import pawnracePng from '../assets/projects/pawnrace.png'
 import pawnrace2Png from '../assets/projects/pawnrace2.png'
 import pawnrace3Png from '../assets/projects/pawnrace3.png'
 
-import musicify from '../assets/projects/musicify.gif'
-import musicify2 from '../assets/projects/musicify2.gif'
+import musicify from '../assets/projects/musicify.mp4'
+import musicify2 from '../assets/projects/musicify2.mp4'
 
 import musicifyPng from '../assets/projects/musicify.png'
 import musicify2Png from '../assets/projects/musicify2.png'
 
-import projectile from '../assets/projects/projectile.gif'
-import projectile2 from '../assets/projects/projectile2.gif'
-import projectile3 from '../assets/projects/projectile3.gif'
+import projectile from '../assets/projects/projectile.mp4'
+import projectile2 from '../assets/projects/projectile2.mp4'
+import projectile3 from '../assets/projects/projectile3.mp4'
 
 import projectilePng from '../assets/projects/projectile.png'
 import projectile2Png from '../assets/projects/projectile2.png'
 import projectile3Png from '../assets/projects/projectile3.png'
 
-import darklight from '../assets/projects/darklight.gif'
+import darklight from '../assets/projects/darklight.mp4'
 
 import darklightPng from '../assets/projects/darklight.png'
 
-import library from '../assets/projects/library.gif'
+import library from '../assets/projects/library.mp4'
 import library2 from '../assets/projects/library2.png'
 import library3 from '../assets/projects/library3.png'
 
 import libraryPng from '../assets/projects/library.png'
 
-import mephious from '../assets/projects/mephious.gif'
+import mephious from '../assets/projects/mephious.mp4'
 
 import mephiousPng from '../assets/projects/mephious.png'
 
-import acorns from '../assets/projects/acorns.gif'
+import acorns from '../assets/projects/acorns.mp4'
 
 import acornsPng from '../assets/projects/acorns.png'
 
@@ -66,13 +66,13 @@ import minoy from '../assets/projects/minoy.png'
 
 import minoyPng from '../assets/projects/minoy.png'
 
-import trobbit from '../assets/projects/trobbit.gif'
+import trobbit from '../assets/projects/trobbit.mp4'
 import trobbitPng from '../assets/projects/trobbit.png'
 
-import comali from '../assets/projects/comali.gif'
+import comali from '../assets/projects/comali.mp4'
 import comaliPng from '../assets/projects/comali.png'
 
-import vampy from '../assets/projects/vampy.gif'
+import vampy from '../assets/projects/vampy.mp4'
 import vampyPng from '../assets/projects/vampy.png'
 import { LazyLoadComponent, LazyLoadImage } from "react-lazy-load-image-component";
 
@@ -275,7 +275,7 @@ export default function Projects() {
           >
             <div className="project-image">
               {/* <img src={project.image} alt={project.title} loading="lazy" /> */}
-              <ImageWithLoader src={project.image} alt={project.title} placeholder={project.placeholder} className="grid" />
+              <MediaWithLoader src={project.image} alt={project.title} placeholder={project.placeholder} className="grid" />
             </div>
             <h4>{project.title}</h4>
             <p>{project.description}</p>
@@ -297,7 +297,8 @@ export default function Projects() {
       </button>
       <h2>{selectedProject.title}</h2>
       <div className="popup-image">
-        <img src={selectedProject.image} alt={selectedProject.title} />
+        {/* <img src={selectedProject.image} alt={selectedProject.title} /> */}
+        <MediaWithLoader src={selectedProject.image} alt={selectedProject.title} placeholder={selectedProject.placeholder} className="popup" />
       </div>
       <p>{selectedProject.description}</p>
       <p><em>{selectedProject.techstack}</em></p>
@@ -324,7 +325,7 @@ export default function Projects() {
           <div className="popup-box" key={idx}>
             {selectedProject.dataImages[idx] && (
               <div className="popup-image">
-                <ImageWithLoader
+                <MediaWithLoader
                   src={selectedProject.dataImages[idx]}
                   placeholder={selectedProject.dataPlaceHolders ? selectedProject.dataPlaceHolders[idx] : null}
                   alt={`${selectedProject.title} screenshot ${idx + 1}`}
@@ -382,5 +383,59 @@ function ImageWithLoader({ src, placeholder, alt, className }) {
     </div>
   );
 }
+
+
+function MediaWithLoader({ src, placeholder, alt, className }) {
+  const [loaded, setLoaded] = React.useState(false);
+  const isVideo = src.endsWith(".mp4") || src.endsWith(".webm");
+
+  return (
+    <div className={`media-wrapper ${className || ""}`}>
+      {/* Show placeholder/spinner until loaded */}
+      {!loaded && (
+        placeholder ? (
+          <img src={placeholder} alt={`${alt} cover`} className="placeholder" />
+        ) : (
+          <div className="spinner"><div className="loader" /></div>
+        )
+      )}
+
+      {isVideo ? (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={placeholder}
+          onLoadedData={() => setLoaded(true)}
+          style={{
+            opacity: loaded ? 1 : 0,
+            transition: "opacity 0.3s ease-in-out",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover"
+          }}
+        >
+          <source src={src} type={src.endsWith(".mp4") ? "video/mp4" : "video/webm"} />
+        </video>
+      ) : (
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          onLoad={() => setLoaded(true)}
+          style={{
+            opacity: loaded ? 1 : 0,
+            transition: "opacity 0.3s ease-in-out",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover"
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
 
 
